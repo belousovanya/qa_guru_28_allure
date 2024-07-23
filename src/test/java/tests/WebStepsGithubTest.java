@@ -16,7 +16,7 @@ public class WebStepsGithubTest {
     }
 
     @Step("Ищем репозиторий {repo}")
-    public void searchForRepository (String repo) {
+    public void searchForRepository(String repo) {
         $("span[data-target='qbsearch-input.inputButtonText']").click();
         $("#query-builder-test").sendKeys(repo);
         $("#query-builder-test").pressEnter();
