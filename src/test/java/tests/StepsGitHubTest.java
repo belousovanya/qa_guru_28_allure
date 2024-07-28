@@ -1,10 +1,6 @@
 package tests;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 
@@ -28,19 +24,19 @@ public class StepsGitHubTest {
             open("https://github.com");
         });
         step("Ищем репозиторий " + REPOSITORY, () -> {
-        $("span[data-target='qbsearch-input.inputButtonText']").click();
-        $("#query-builder-test").sendKeys(REPOSITORY);
-        $("#query-builder-test").pressEnter();
+            $("span[data-target='qbsearch-input.inputButtonText']").click();
+            $("#query-builder-test").sendKeys(REPOSITORY);
+            $("#query-builder-test").pressEnter();
         });
         step("Кликаем по ссылке репозитория " + REPOSITORY, () -> {
             $(linkText(REPOSITORY)).click();
         });
         step("Открываем таб Issues", () -> {
             $("#issues-tab").click();
-            });
+        });
         step("Проверяем наличие Issue с номером ", () -> {
             $(withText("#" + ISSUE)).should(exist);
-            });
+        });
     }
 
     @Test
